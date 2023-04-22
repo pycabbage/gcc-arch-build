@@ -22,9 +22,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gcc-
       - name: Install aria2
-        run:
-          sudo apt update
-          sudo apt install aria2 --no-install-recommends
+        run: |
+          sudo apt-get update
+          sudo apt-get install aria2 --no-install-recommends
       - name: Download source
         run: aria2c -x16 -s16 -i list.txt -c
 
