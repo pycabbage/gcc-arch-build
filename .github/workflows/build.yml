@@ -5,6 +5,7 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -57,8 +58,14 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           pull: true
           push: true
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6
           build-args: |
             --progress=plain
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      - name: Export output
+        uses: actions/upload-artifact@v2
+        with:
+          name: output
+          path: output
