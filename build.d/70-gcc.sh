@@ -2,8 +2,8 @@
 
 . $(dirname $0)/env.sh
 
-NAME=gdb
-VERSION=13.1
+NAME=gcc
+VERSION=12.2.0
 
 CONFIGURE_FLAGS=(
   --prefix=$PREFIX
@@ -18,12 +18,22 @@ CONFIGURE_FLAGS=(
   --enable-objc-gc
   --enable-vtable-verify
   --with-system-zlib
-  --with-zstd
 )
-BUILD_IN_SUBDIR=false
+
 FLAG_BUILD=all-gdb
 POSTBUILDING="make all-target-libgcc -j$(nproc)"
 FLAG_INSTALL=install-gdb
 POSTINSTALLING="make install-target-libgcc"
 
-. $(dirname $0)/build.sh
+# . $(dirname $0)/build.sh
+tar axf $(ls $NAME-$VERSION.* | tail -n1)
+(
+  cd $NAME-$VERSION
+  mkdir build
+  cd build
+  ../configure ${CONFIGURE_FLAGS[@]}
+  make all-gdb -j$(nproc)
+  make all-target-libgcc -j$(nproc)
+  make install-gdb -j$(nproc)
+  make install-target-libgcc
+)

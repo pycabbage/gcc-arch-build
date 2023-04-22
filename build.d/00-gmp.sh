@@ -11,6 +11,6 @@ CONFIGURE_FLAGS=(
   --enable-cxx
 )
 POSTBUILDING="make check -j$(nproc)"
-FLAG_INSTALL=install-strip
+# FLAG_INSTALL=install-strip
 
 . $(dirname $0)/build.sh

@@ -8,10 +8,10 @@ VERSION=2.40
 CONFIGURE_FLAGS=(
   --prefix=$PREFIX
   --target=$TARGET
-  # --with-gmp=$BUILDER_PREFIX
-  # --with-isl=$BUILDER_PREFIX
-  # --with-mpfr=$BUILDER_PREFIX
-  # --with-mpc=$BUILDER_PREFIX
+  --with-gmp=$BUILDER_PREFIX
+  --with-isl=$BUILDER_PREFIX
+  --with-mpfr=$BUILDER_PREFIX
+  --with-mpc=$BUILDER_PREFIX
   --enable-year2038
   --enable-libada
   --enable-libssp
