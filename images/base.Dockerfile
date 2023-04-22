@@ -49,9 +49,13 @@ RUN --mount=type=bind,source=build.d/70-gcc.sh,target=/tmp/build.d/70-gcc.sh \
   /tmp/build.d/70-gcc.sh
 
 # export prefix
-# USER root
-# RUN --mount=type=bind,source=output,target=/opt/mount,rw \
-#   cp -r /opt/prefix /opt/mount/ && \
-#   ls -lah /opt/prefix /opt/mount
+USER root
+RUN --mount=type=bind,source=output,target=/opt/mount,rw \
+  --mount=type=bind,source=scripts.d/90-compress-prefix.sh,target=/tmp/scripts.d/90-compress-prefix.sh \
+  ARCHIVE=/tmp/prefix.tar.zst \
+  /tmp/scripts.d/90-compress-prefix.sh && \
+  cp $ARCHIVE /opt/mount/ && \
+  ls -lah /opt/prefix /opt/mount
 
+USER ${NONROOT_USERNAME}
 ENV color_prompt=yes

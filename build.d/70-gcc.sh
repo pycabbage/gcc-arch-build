@@ -32,8 +32,8 @@ tar axf $(ls $NAME-$VERSION.* | tail -n1)
   mkdir build
   cd build
   ../configure ${CONFIGURE_FLAGS[@]}
-  make all-gdb -j$(nproc)
+  make all-gcc -j$(nproc)
   make all-target-libgcc -j$(nproc)
-  make install-gdb -j$(nproc)
+  make install-gcc
   make install-target-libgcc
 )
