@@ -1,0 +1,10 @@
+https://ftp.gnu.org/pub/gnu/gdb/gdb-13.1.tar.xz
+  out=cache/gdb-13.1.tar.xz
+https://ftp.gnu.org/pub/gnu/gcc/gcc-12.2.0/gcc-12.2.0.tar.xz
+  out=cache/gcc-12.2.0.tar.xz
+https://ftp.gnu.org/pub/gnu/binutils/binutils-2.40.tar.xz
+  out=cache/binutils-2.40.tar.xz
+https://ftp.gnu.org/pub/gnu/make/make-4.4.tar.gz
+  out=cache/make-4.4.tar.gz
+https://ftp.gnu.org/pub/gnu/glibc/glibc-ports-2.16.0.tar.xz
+  out=cache/glibc-ports-2.16.0.tar.xz
