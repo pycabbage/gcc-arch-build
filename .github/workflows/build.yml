@@ -26,7 +26,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install aria2 --no-install-recommends
       - name: Download source
-        run: aria2c -x16 -s16 -i list.txt -c
+        run: |
+          aria2c -x16 -s16 -i list.txt -c
+          mkdir output
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
