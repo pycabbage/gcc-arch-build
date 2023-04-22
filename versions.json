@@ -1,0 +1,16 @@
+{
+  "gdb": "latest",
+  "gcc": "latest",
+  "binutils": "latest",
+  "make": "latest",
+  "glibc": "latest",
+  "tar": "latest",
+  "gzip": "latest",
+  "gmp": "latest",
+  "texinfo": "latest",
+  "gawk": "latest",
+  "bison": "latest",
+  "mpc": "latest",
+  "mpfr": "latest",
+  "isl": "https://libisl.sourceforge.io/isl-0.15.tar.xz"
+}
