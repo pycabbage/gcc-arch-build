@@ -31,23 +31,25 @@ ARG TARGET=i686-linux-gnu
 COPY --chown=${NONROOT_USERNAME} build.d/build.sh /tmp/build.d/build.sh
 COPY --chown=${NONROOT_USERNAME} build.d/env.sh /tmp/build.d/env.sh
 
-RUN --mount=type=bind,source=build.d/00-gmp.sh,target=/tmp/build.d/00-gmp.sh \
-  /tmp/build.d/00-gmp.sh
-RUN --mount=type=bind,source=build.d/10-mpfr.sh,target=/tmp/build.d/10-mpfr.sh \
-  /tmp/build.d/10-mpfr.sh
-RUN --mount=type=bind,source=build.d/20-mpc.sh,target=/tmp/build.d/20-mpc.sh \
-  /tmp/build.d/20-mpc.sh
-RUN --mount=type=bind,source=build.d/30-isl.sh,target=/tmp/build.d/30-isl.sh \
-  /tmp/build.d/30-isl.sh
-RUN --mount=type=bind,source=build.d/40-binutils.sh,target=/tmp/build.d/40-binutils.sh \
-  /tmp/build.d/40-binutils.sh
-RUN --mount=type=bind,source=build.d/50-gdb.sh,target=/tmp/build.d/50-gdb.sh \
-  /tmp/build.d/50-gdb.sh
-RUN --mount=type=bind,source=build.d/60-gcc.sh,target=/tmp/build.d/60-gcc.sh \
-  /tmp/build.d/60-gcc.sh
+# RUN --mount=type=bind,source=build.d/00-gmp.sh,target=/tmp/build.d/00-gmp.sh \
+#   /tmp/build.d/00-gmp.sh
+# RUN --mount=type=bind,source=build.d/10-mpfr.sh,target=/tmp/build.d/10-mpfr.sh \
+#   /tmp/build.d/10-mpfr.sh
+# RUN --mount=type=bind,source=build.d/20-mpc.sh,target=/tmp/build.d/20-mpc.sh \
+#   /tmp/build.d/20-mpc.sh
+# RUN --mount=type=bind,source=build.d/30-isl.sh,target=/tmp/build.d/30-isl.sh \
+#   /tmp/build.d/30-isl.sh
+# RUN --mount=type=bind,source=build.d/40-binutils.sh,target=/tmp/build.d/40-binutils.sh \
+#   /tmp/build.d/40-binutils.sh
+# RUN --mount=type=bind,source=build.d/50-gdb.sh,target=/tmp/build.d/50-gdb.sh \
+#   /tmp/build.d/50-gdb.sh
+# RUN --mount=type=bind,source=build.d/60-gcc.sh,target=/tmp/build.d/60-gcc.sh \
+#   /tmp/build.d/60-gcc.sh
 
 # export prefix
 # USER root
 # RUN --mount=type=bind,source=output,target=/opt/mount,rw \
 #   cp -r /opt/prefix /opt/mount/ && \
 #   ls -lah /opt/prefix /opt/mount
+
+ENV color_prompt=yes
